@@ -13,7 +13,7 @@ for ($nombre=1;$nombre<=30 ;$nombre+=1) {
             echo "Fizz ";
     }
     else{
-        print $nombre. " ";
+        echo $nombre. " ";
     }
 }
 

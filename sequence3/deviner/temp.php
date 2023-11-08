@@ -1,12 +1,4 @@
 <?php
-
-echo "Bienvenue dans le jeu de devinette ! 
-Le but est de deviner un nombre entre 1 et 100. 
-Vous avez 10 à 15 essais pour trouver le nombre
-Bonne chance :";
-
-echo PHP_EOL;
-
 echo "1. Jouer 
 2. Voir les résultats.
 3. Voir les résultats d'un jour.

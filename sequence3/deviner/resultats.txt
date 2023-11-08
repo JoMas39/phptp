@@ -4,3 +4,5 @@
 08/11/23 13:38:53 - Pseudo: plm - Résultat:  Bien joué ! Vous avez trouvé le nombre en 12 essais. 
 08/11/23 13:52:30 - Pseudo: p - Résultat:  Perdu ! Le nombre à deviner était 13 
 08/11/23 13:54:44 - Pseudo: p - Résultat:  Perdu ! Le nombre à deviner était 81 
+08/11/23 13:57:20 - Pseudo: p - Résultat:  Perdu ! Le nombre à deviner était 66 
+08/11/23 13:57:29 - Pseudo: 1 - Résultat:  Perdu ! Le nombre à deviner était 76 

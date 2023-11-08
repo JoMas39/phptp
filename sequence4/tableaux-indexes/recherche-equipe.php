@@ -17,3 +17,5 @@ if (in_array($choix_user,$arrayLow)) {
     else{
     echo ucfirst($choix_user). " ne sera pas présente à la prochaine coupe du monde !";
 }
+
+    foreach ()

@@ -12,8 +12,8 @@ $user=readline("Veuillez choisir une équipe : ");
 $choix_user=(strtolower($user));
 
 if (in_array($choix_user,$arrayLow)) {
-    echo "$user sera présente à la prochaine coupe du monde !";
+    echo ucfirst($choix_user). " sera présente à la prochaine coupe du monde !";
 }
     else{
-    echo "$user ne sera pas présente à la prochaine coupe du monde !";
+    echo ucfirst($choix_user). " ne sera pas présente à la prochaine coupe du monde !";
 }

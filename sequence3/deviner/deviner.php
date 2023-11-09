@@ -75,32 +75,40 @@ while ($jeu=true) {
         $heure = date("H:i:s");
         fwrite($fichier, "$jour $heure - Pseudo: $pseudo - Résultat: $resultat \n");
         fclose($fichier);
-    }
 
-    elseif ($menu==2){
+    } elseif ($menu == 2) {
         echo "Voir les résultats. \n";
-        $choix2=fopen("resultats.txt", "r");
-        echo $choix2, "\n";
-    }
+        $fichier = "resultats.txt";
+        echo file_get_contents($fichier);
 
-    elseif ($menu==3){
+    } elseif ($menu == 3) {
         echo "Voir les résultats d'un jour. \n";
-        $date_result=readline("Choisissez une date au format jour/mois/année : ");
-        $choix3=fopen("resultats.txt", "r");
-        echo $choix3, "\n";
-    }
+        $date_resultat = readline("Choisissez une date au format jour/mois/année : ");
+        $fichier = "resultats.txt";
+        $date = file_get_contents($fichier);
+        if ($date = false) {
+            echo "Aucune donnée pour cette date \n";
+        }
+        if ($date = true) {
+            echo "$date", "\n";
+        }
 
-    elseif ($menu==4){
+    } elseif ($menu == 4) {
         echo "Voir les résultats d'un joueur. \n";
-        $pseudo_result=readline("Choisissez un pseudo : ");
-        $choix4=fopen("resultats.txt", "r");
-        echo $choix4, "\n";
+        $fichier = "resultats.txt";
+        $pseudo_resultat = readline("Choisissez un pseudo : ");
+        $pseudo = file_get_contents($fichier);
+        if ($pseudo = false) {
+            echo "Aucun pseudo ne correspond. \n";
+        }
+        if ($pseudo = true) {
+            echo "$pseudo", "\n";
+        }
     }
 
-    elseif ($menu==5){
+    elseif ($menu == 5) {
         echo "Quitter. \n";
-        $jeu=false;
+        $jeu = false;
         break;
     }
-
 }

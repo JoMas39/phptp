@@ -2,56 +2,6 @@
 https://apcpedagogie.com/operation-sur-les-tableaux-en-php/
 
 
-
-Pour appliquer un coefficient multiplicateur (*1.2) à toutes les valeurs d'un tableau en PHP,
-vous pouvez utiliser la fonction array_map().
-Cette fonction applique une fonction à chaque élément d'un tableau. Voici un exemple :
-
-<?php
-// Votre tableau initial
-$tableau = [10, 20, 30, 40, 50];
-
-// Appliquer le coefficient multiplicateur (*1.2) à toutes les valeurs
-$tableauMultiplie = array_map(function ($valeur) {
-    return $valeur * 1.2;
-}, $tableau);
-
-// Afficher le tableau initial
-echo "Tableau initial : ";
-print_r($tableau);
-
-// Afficher le tableau avec le coefficient multiplicateur appliqué
-echo "Tableau multiplié par 1.2 : ";
-print_r($tableauMultiplie);
-?>
-
-Dans cet exemple, la fonction anonyme passée à array_map() prend chaque valeur du tableau initial, la multiplie par 1.2, et renvoie le résultat. Le tableau résultant, $tableauMultiplie, contiendra toutes les valeurs du tableau initial après l'application du coefficient multiplicateur.
-
-
-
-
-Pour remplir un tableau avec 100 000 éléments identiques, vous pouvez utiliser la fonction array_fill(). Cette fonction crée un tableau avec une séquence de valeurs identiques. Voici comment vous pouvez l'utiliser pour remplir un tableau de 100 000 éléments avec le chiffre 1 :
-
-<?php
-// Remplir un tableau avec 100 000 éléments identiques (chiffre 1)
-$tableau = array_fill(0, 100000, 1);
-
-// Afficher le tableau (pour vérification, vous pouvez limiter le nombre d'éléments affichés)
-echo "Tableau rempli avec 100 000 éléments identiques (chiffre 1) : ";
-print_r(array_slice($tableau, 0, 10)); // Affiche les 10 premiers éléments
-?>
-Dans cet exemple, array_fill(0, 100000, 1) crée un tableau avec 100 000 éléments, tous égaux à 1. La fonction array_slice() est utilisée pour afficher les 10 premiers éléments du tableau, mais vous pouvez ajuster les paramètres de array_slice() pour afficher davantage d'éléments si nécessaire.
-
-
-
-
-<?php
-// Remplir un tableau avec 100 000 éléments identiques (chiffre 1)
-$tableau = array_fill(0, 100000, 1);
-
-// Taille totale du tableau
-$tailleTableau = count($tableau);
-
 // Parcourir le tableau
 for ($i = 0; $i < $tailleTableau; $i++) {
     // Calculer le pourcentage d'avancement

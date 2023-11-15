@@ -1,0 +1,215 @@
+<?php
+// Tableau pour stocker les notes
+$notes = [];
+
+// Boucle pour demander à l'utilisateur de saisir des notes
+while (true) {
+    $note = readline("Entrez une note (ou 'q' pour quitter) : ");
+
+    // Vérifier si l'utilisateur veut quitter
+    if (strtolower($note) === 'q') {
+        break;
+    }
+
+    // Convertir la note en nombre à virgule flottante
+    $note = floatval($note);
+
+    // Vérifier si la note est valide (entre 0 et 20)
+    if ($note >= 0 && $note <= 20) {
+        $notes[] = $note; // Ajouter la note au tableau
+    } else {
+        echo "Veuillez entrer une note valide entre 0 et 20.\n";
+    }
+}
+
+// Afficher le nombre de notes saisies
+$nombreDeNotes = count($notes);
+echo "Nombre de notes saisies : $nombreDeNotes\n";
+
+// Afficher les notes saisies
+if ($nombreDeNotes > 0) {
+    echo "Les notes saisies sont : ";
+    foreach ($notes as $note) {
+        echo "$note, ";
+    }
+    echo "\n";
+} else {
+    echo "Aucune note n'a été saisie.\n";
+}
+?>
+
+
+Dans ce programme modifié, j'ai utilisé une boucle while (true) pour permettre à l'utilisateur de saisir des notes. La boucle se poursuit indéfiniment jusqu'à ce que l'utilisateur entre 'q' pour quitter. À chaque itération de la boucle, le programme vérifie si la note est valide (entre 0 et 20) et l'ajoute au tableau si c'est le cas. Si l'utilisateur entre 'q', la boucle est interrompue, et le programme affiche le nombre de notes et les notes saisies.
+
+
+
+
+
+Non, dans le code fourni, les erreurs de saisie ne sont pas intégrées au tableau. Si l'utilisateur saisit une note qui n'est pas valide (en dehors de la plage 0-20), le programme affiche un message d'erreur, mais la note n'est pas ajoutée au tableau.
+
+
+// Vérifier si la note est valide (entre 0 et 20)
+if ($note >= 0 && $note <= 20) {
+    $notes[] = $note; // Ajouter la note au tableau
+} else {
+    echo "Veuillez entrer une note valide entre 0 et 20.\n";
+}
+
+
+Si la note est valide, elle est ajoutée au tableau $notes. Sinon, un message d'erreur est affiché, mais la note n'est pas ajoutée au tableau. Cela garantit que seules les notes valides sont incluses dans le tableau final.
+
+
+
+
+
+Non, dans le code fourni, la lettre 'q' n'est pas intégrée au tableau. Si l'utilisateur saisit 'q' pour quitter, la boucle est interrompue avec l'instruction break, mais la lettre 'q' n'est pas ajoutée au tableau $notes. Le tableau ne contiendra que des valeurs numériques valides entre 0 et 20.
+
+
+// Vérifier si l'utilisateur veut quitter
+if (strtolower($note) === 'q') {
+    break;
+}
+
+Cette condition vérifie si l'entrée de l'utilisateur, convertie en minuscules, est égale à 'q'. Si c'est le cas, la boucle est interrompue avec break, et la lettre 'q' n'est pas ajoutée au tableau.
+
+
+
+
+
+
+
+D'accord, pour réaliser cela, vous pouvez ajouter une étape supplémentaire après la saisie des notes pour filtrer celles qui sont supérieures ou égales à 10, puis calculer la moyenne de ces notes. Voici le programme modifié :
+
+
+<?php
+// Tableau pour stocker les notes
+$notes = [];
+
+// Boucle pour demander à l'utilisateur de saisir des notes
+while (true) {
+    $note = readline("Entrez une note (ou 'q' pour quitter) : ");
+
+    // Vérifier si l'utilisateur veut quitter
+    if (strtolower($note) === 'q') {
+        break;
+    }
+
+    // Convertir la note en nombre à virgule flottante
+    $note = floatval($note);
+
+    // Vérifier si la note est valide (entre 0 et 20)
+    if ($note >= 0 && $note <= 20) {
+        $notes[] = $note; // Ajouter la note au tableau
+    } else {
+        echo "Veuillez entrer une note valide entre 0 et 20.\n";
+    }
+}
+
+// Filtrer les notes supérieures ou égales à 10
+$notesSuperieuresOuEgalesA10 = array_filter($notes, function ($note) {
+    return $note >= 10;
+});
+
+// Afficher le nombre de notes saisies
+$nombreDeNotes = count($notes);
+echo "Nombre de notes saisies : $nombreDeNotes\n";
+
+// Afficher les notes saisies
+if ($nombreDeNotes > 0) {
+    echo "Les notes saisies sont : ";
+    foreach ($notes as $note) {
+        echo "$note, ";
+    }
+    echo "\n";
+
+    // Calculer et afficher la moyenne des notes supérieures ou égales à 10
+    $nombreDeNotesSuperieuresOuEgalesA10 = count($notesSuperieuresOuEgalesA10);
+    if ($nombreDeNotesSuperieuresOuEgalesA10 > 0) {
+        $moyenne = array_sum($notesSuperieuresOuEgalesA10) / $nombreDeNotesSuperieuresOuEgalesA10;
+        echo "Moyenne des notes supérieures ou égales à 10 : $moyenne\n";
+    } else {
+        echo "Aucune note supérieure ou égale à 10 n'a été saisie.\n";
+    }
+} else {
+    echo "Aucune note n'a été saisie.\n";
+}
+?>
+
+Dans cette version, j'ai ajouté une étape pour filtrer les notes supérieures ou égales à 10 à l'aide de la fonction array_filter(). Ensuite, j'ai calculé la moyenne de ces notes et l'ai affichée à la fin du programme. Si aucune note supérieure ou égale à 10 n'a été saisie, un message approprié est affiché.
+
+
+
+
+
+
+
+Pour appliquer un coefficient multiplicateur (*1.2) à toutes les valeurs d'un tableau en PHP, vous pouvez utiliser la fonction array_map(). Cette fonction applique une fonction à chaque élément d'un tableau. Voici un exemple :
+
+<?php
+// Votre tableau initial
+$tableau = [10, 20, 30, 40, 50];
+
+// Appliquer le coefficient multiplicateur (*1.2) à toutes les valeurs
+$tableauMultiplie = array_map(function ($valeur) {
+    return $valeur * 1.2;
+}, $tableau);
+
+// Afficher le tableau initial
+echo "Tableau initial : ";
+print_r($tableau);
+
+// Afficher le tableau avec le coefficient multiplicateur appliqué
+echo "Tableau multiplié par 1.2 : ";
+print_r($tableauMultiplie);
+?>
+
+Dans cet exemple, la fonction anonyme passée à array_map() prend chaque valeur du tableau initial, la multiplie par 1.2, et renvoie le résultat. Le tableau résultant, $tableauMultiplie, contiendra toutes les valeurs du tableau initial après l'application du coefficient multiplicateur.
+
+
+
+
+Pour remplir un tableau avec 100 000 éléments identiques, vous pouvez utiliser la fonction array_fill(). Cette fonction crée un tableau avec une séquence de valeurs identiques. Voici comment vous pouvez l'utiliser pour remplir un tableau de 100 000 éléments avec le chiffre 1 :
+
+<?php
+// Remplir un tableau avec 100 000 éléments identiques (chiffre 1)
+$tableau = array_fill(0, 100000, 1);
+
+// Afficher le tableau (pour vérification, vous pouvez limiter le nombre d'éléments affichés)
+echo "Tableau rempli avec 100 000 éléments identiques (chiffre 1) : ";
+print_r(array_slice($tableau, 0, 10)); // Affiche les 10 premiers éléments
+?>
+Dans cet exemple, array_fill(0, 100000, 1) crée un tableau avec 100 000 éléments, tous égaux à 1. La fonction array_slice() est utilisée pour afficher les 10 premiers éléments du tableau, mais vous pouvez ajuster les paramètres de array_slice() pour afficher davantage d'éléments si nécessaire.
+
+
+
+
+<?php
+// Remplir un tableau avec 100 000 éléments identiques (chiffre 1)
+$tableau = array_fill(0, 100000, 1);
+
+// Taille totale du tableau
+$tailleTableau = count($tableau);
+
+// Parcourir le tableau
+for ($i = 0; $i < $tailleTableau; $i++) {
+    // Calculer le pourcentage d'avancement
+    $pourcentageAvancement = ($i + 1) / $tailleTableau * 100;
+
+    // Afficher le pourcentage d'avancement
+    echo "Avancement : $pourcentageAvancement%\r";
+
+    // Vous pouvez également effectuer d'autres opérations avec $tableau[$i] si nécessaire
+    // ...
+
+    // Ajouter un délai artificiel pour mieux visualiser l'avancement (facultatif)
+    usleep(1000); // Pause d'une milliseconde (1 000 microsecondes)
+}
+
+// Ajouter un saut de ligne après la boucle
+echo "\n";
+?>
+
+
+Dans cet exemple, la variable $pourcentageAvancement est calculée à chaque itération de la boucle, en fonction de l'indice de l'itération et de la taille totale du tableau. Vous pouvez personnaliser les opérations à effectuer à chaque itération selon vos besoins.
+
+Le code utilise également echo "\r" pour revenir au début de la ligne à chaque itération, ce qui crée un effet de mise à jour en place de l'affichage du pourcentage d'avancement. Notez que cela fonctionne mieux dans un terminal que dans un environnement web où la sortie pourrait être mise en cache.

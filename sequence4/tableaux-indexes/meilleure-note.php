@@ -6,6 +6,8 @@
 // Une 1ère version utilisant une boucle
 // Une 2nde version utilisant une fonction proposée par PHP
 
+// OK FINI
+
 $notes = [10, 12.5, 14, 7, 15, 9.5, 8];
 echo "Deuxième version (fonction) : La meilleure note est " .max($notes), "\n";
 

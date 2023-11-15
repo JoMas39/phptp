@@ -4,6 +4,8 @@
 //son examen final.
 //Les notes sont les suivantes 10 12,5 14 7 15 9,5 et 8
 
+// OK FINI
+
 $notes = [10, 12, 5, 14, 7, 15, 9, 5, 8];
 $somme=array_sum($notes);
 $diviseur=count($notes);

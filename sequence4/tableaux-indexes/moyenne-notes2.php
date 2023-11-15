@@ -8,6 +8,8 @@
 //Entre 14 et 16 (exclu)            Mention bien
 //>=16                              Mention très bien
 
+// OK FINI
+
 $notes = [10, 12, 5, 14, 7, 15, 9, 5, 8];
 $somme=array_sum($notes);
 $diviseur=count($notes);

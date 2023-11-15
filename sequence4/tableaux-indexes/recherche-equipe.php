@@ -11,6 +11,7 @@ $arrayLow=array_map('strtolower', $equipes);
 $user=readline("Veuillez choisir une équipe : ");
 $choix_user=(strtolower($user));
 
+// première option avec une fonction de PHP
 if (in_array($choix_user,$arrayLow)) {
     echo ucfirst($choix_user). " sera présente à la prochaine coupe du monde !";
 }
@@ -18,6 +19,7 @@ if (in_array($choix_user,$arrayLow)) {
     echo ucfirst($choix_user). " ne sera pas présente à la prochaine coupe du monde !";
 }
 
-    foreach ($equipes){
+// première option avec une boucle
+    foreach ($equipes as $equipe){
 
     }

@@ -4,7 +4,7 @@
 //Séparation des valeurs : ','
 
 $notes = [12,18,9,8,20,15,6,6,6]; // $notes = array(12,18,9);
-// Un tableau contient des valeurs. On appelle ces valeurs des "éléments". un tableau contient donc en fait des éléments.
+// Un tableau contient des valeurs. On appelle ces valeurs des "éléments". Un tableau contient donc en fait des éléments.
 
 echo $notes[0];
 // On accède à l'élément qui se trouve à l'index 0 dans le tableau $notes (ici, 12).

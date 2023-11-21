@@ -19,7 +19,7 @@ if (in_array($choix_user,$arrayLow)) {
     echo ucfirst($choix_user). " ne sera pas présente à la prochaine coupe du monde !";
 }
 
-// première option avec une boucle
+// Deuxième option avec une boucle
     foreach ($equipes as $equipe){
 
     }

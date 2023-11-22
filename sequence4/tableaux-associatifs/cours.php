@@ -1,9 +1,7 @@
 <?php
-
 //Déclarer et initialiser un tableau de notes.
 //Clés = nom de l'étudiant
 //Valeurs = note
-
 $notes=[
   "dupond"=>12,
   "martin"=>16,
@@ -22,11 +20,13 @@ $notes["petit"]=10;
 print_r($notes);
 //La nouvelle valeur de la clé remplace la valeur précédente.
 
+
 //Afficher l'ensemble des notes.
 foreach ($notes as $note) {
     echo "$note ";
 }
 echo PHP_EOL;
+
 
 //Afficher le nom de chaque étudiant avec sa note
 foreach ($notes as $nom=>$note) {
@@ -34,12 +34,14 @@ foreach ($notes as $nom=>$note) {
 }
 echo PHP_EOL;
 
+
 //Afficher la même chose, mais avec le nom en minuscule, avec la première lettre en majuscule
 foreach ($notes as $nom=>$note) {
     $nom=ucfirst(strtolower($nom));
     echo "$nom : $note", "\n";
 }
 echo PHP_EOL;
+
 
 //Afficher le nom de chaque étudiant
 print_r(array_keys($notes));
@@ -71,7 +73,7 @@ $moyenne= array_sum($notes)/count($notes);
 echo "La moyenne des notes est : $moyenne";
 echo PHP_EOL;
 
-//Prendre en compte la possibilité que le tableau soit vide
+//!!!!!!!!!!!!!!! Prendre en compte la possibilité que le tableau soit vide !!!!!!!!!!!!!!!!!
 if (!empty($notes)){
     // empty = vide ; !empty = pas vide
     $moyenne2=array_sum($notes)/count($notes);
@@ -82,7 +84,18 @@ if (!empty($notes)){
 
 
 
-//Afficher la liste des étudiants triés par un ordre alphabétique
+//Afficher la liste des étudiants triés par un ordre alphabétique croissant
 $noms=array_keys($notes);
-sort($noms);
+sort($noms); // trier les valeurs d'un tableau indexé
 print_r($noms);
+
+//Afficher la liste des étudiants triés par un ordre alphabétique décroissant
+$noms=array_keys($notes);
+rsort($noms);
+print_r($noms);
+
+
+
+// Rechercher et afficher la meilleure note
+$max=max($notes);
+echo "La meilleure note est $max !";

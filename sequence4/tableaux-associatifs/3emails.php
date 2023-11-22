@@ -21,3 +21,4 @@ print_r($membres);
 foreach ($membres as $membre=>$mail){
     echo "$membre : $mail", "\n";
 }
+

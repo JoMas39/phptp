@@ -12,21 +12,21 @@ $contacts=[
 ];
 print_r($contacts);
 
-//Saisie de l'utilisateur
-$nom=readline("Saisissez un nom : ");
+foreach ($contacts as $contact=>$tel){
+    echo "$contact : $tel", "\n";
+}
 
-//NOM : Première lettre en majuscule, le reste en minuscule
+// Saisie de l'utilisateur
+$nom=readline("Saisissez un nom :");
 $nomMin=ucfirst(strtolower($nom));
-
-//Confirmation de la saisie
+//Confirmation de saisie
 echo "Vous recherchez : $nomMin";
 echo PHP_EOL;
 
-//Boucle
-foreach ($contacts as $contact=>$tel) {
-    if (array_key_exists($nomMin, $contacts)) {
-        echo "Contact trouvé : $contact : $tel ";
-    } else {
-        echo "Le contact n'est pas trouvé.";
-    }
+$verif=array_keys($contacts);
+if($nomMin=$verif){
+    echo "Contact trouvé : $contact , $tel ";
+}
+else {
+    echo "Le contact n'est pas trouvé.";
 }

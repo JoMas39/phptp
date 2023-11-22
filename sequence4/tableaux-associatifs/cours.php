@@ -57,8 +57,32 @@ unset($notes["JEAN"]);
 print_r($notes);
 
 
+
+
+
 //Calculer et afficher la moyenne des notes
 $somme=array_sum($notes);
 $diviseur=count($notes);
 $moyenne= $somme/$diviseur;
 echo "La moyenne des notes est : $moyenne";
+echo PHP_EOL;
+//Plus simple :
+$moyenne= array_sum($notes)/count($notes);
+echo "La moyenne des notes est : $moyenne";
+echo PHP_EOL;
+
+//Prendre en compte la possibilité que le tableau soit vide
+if (!empty($notes)){
+    // empty = vide ; !empty = pas vide
+    $moyenne2=array_sum($notes)/count($notes);
+    echo "La moyenne des notes est : " .round($moyenne,2);
+}
+
+
+
+
+
+//Afficher la liste des étudiants triés par un ordre alphabétique
+$noms=array_keys($notes);
+sort($noms);
+print_r($noms);

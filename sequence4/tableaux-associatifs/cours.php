@@ -55,3 +55,10 @@ foreach ($noms as $nom) {
 //Supprimer l'élément JEAN
 unset($notes["JEAN"]);
 print_r($notes);
+
+
+//Calculer et afficher la moyenne des notes
+$somme=array_sum($notes);
+$diviseur=count($notes);
+$moyenne= $somme/$diviseur;
+echo "La moyenne des notes est : $moyenne";

@@ -99,3 +99,24 @@ print_r($noms);
 // Rechercher et afficher la meilleure note
 $max=max($notes);
 echo "La meilleure note est $max !";
+
+
+//Rechercher et afficher les noms des étudiants ayant une note supérieure ou égale à 10.
+$sup10=[];
+foreach ($notes as $nom=>$note){
+    if ($note>=10){
+        $sup10=$nom;
+    }
+}
+
+if (empty($sup10)){
+    echo "La liste est vide.";
+}
+else{
+    sort($noms);
+    foreach ($noms as $sup10) {
+        echo $sup10, "\n";
+    }
+}
+
+

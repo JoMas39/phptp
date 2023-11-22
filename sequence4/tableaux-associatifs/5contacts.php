@@ -12,7 +12,6 @@ $contacts=[
 ];
 print_r($contacts);
 
-
 // Saisie de l'utilisateur
 $nom=readline("Saisissez un nom :");
 $nomMin=ucfirst(strtolower($nom));
@@ -21,15 +20,11 @@ $nomMin=ucfirst(strtolower($nom));
 echo "Vous recherchez : $nomMin";
 echo PHP_EOL;
 
-
-
-foreach ($contacts as $contact=>$tel){
-    echo "$contact : $tel", "\n";
-}
 if(array_key_exists($nomMin,$contacts)){
-    echo "Contact trouvé : $contacts , $tel ";
+    echo "Contact trouvé : $contacts[$nomMin] ";
+    $vide[]=$nomMin;
+    print_r($vide);
 }
 else {
     echo "Le contact n'est pas trouvé.";
 }
-

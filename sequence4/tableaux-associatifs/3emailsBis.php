@@ -13,14 +13,27 @@ $membres=[
 ];
 print_r($membres);
 
-foreach ($membres as $membre=>$mail){
-    echo "$membre : $mail", "\n";
+// Saisie de l'utilisateur
+echo "Voici les noms de domaine : 
+1 = @free.fr 
+2 = @gmail.com
+3 = @laposte.net", "\n";
+
+
+$choix=readline("Saisissez un nom de domaine :");
+if ($choix=1){
+    $nom="@free.fr";
+}
+elseif ($choix=2){
+    $nom="@gmail.com";
+}
+elseif ($choix=3){
+    $nom="@laposte.net";
 }
 
-// Saisie de l'utilisateur
-$nom=readline("Saisissez un nom :");
 //Confirmation de saisie
 echo "Vous recherchez $nom", "\n";
+
 
 $verif=array_keys($membres);
 if($nom=$verif){

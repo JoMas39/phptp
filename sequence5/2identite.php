@@ -9,12 +9,7 @@ $prenom=readline("Veuillez saisir votre prénom : ");
 $nom=readline("Veuillez saisir votre nom : ");
 
 //Définir fonction
-function retournerIdentite (string $prenom, string $nom): string {
-    $identite=ucfirst(strtolower($prenom))
-        . ' '
-        . strtoupper(strtolower($nom));
-    return $identite;
-}
+require 'cours-fonctions.php';
 
 //Appel de la fonction
 echo "".retournerIdentite($prenom, $nom);

@@ -4,13 +4,14 @@
 //Demande à l'user de saisir un nombre
 //Afficher si le nombre saisi est pair ou impair
 
-function estPair(int $nb1): bool{
-    if ($nb1 % 2 == 0){
-        return true;
-    } else{
-        return false;
-    }
-}
+
+//La fonction est dans le fichier cours-fonctions.php qui centralise les fonctions
+// On doit inclure le fichier dans lequel se trouve la fonction "estPair".
+require 'cours-fonctions.php';
+//require = le programme s'arrête si le fichier n'existe pas. Plante dès le début.
+//include = le programme continue même le fichier n'existe pas, par contre ça déclenche une erreur et ça plantera QUAND la fonction sera utiisé
+
+
 
 //Appel de la fonction
 $user=readline("Veuillez saisir un nombre : ");
@@ -20,7 +21,3 @@ if ($resultat==true){
 } else{
     echo "Le nombre $user est impair";
 }
-
-
-
-int($user);

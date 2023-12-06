@@ -9,6 +9,8 @@
  * Récupérer les articles actifs (articles à afficher)
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
+
+
 function rechercherArticlesActifs(array $tableArticle) : array {
     $resultats = [];
     // Implémentation
@@ -20,7 +22,11 @@ function rechercherArticlesActifs(array $tableArticle) : array {
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
 // PLACER ICI VOTRE FONCTION
-
+function recupererArticlesCategorie(array $tableArticle, $tableCategorie) : array {
+    $resultats = [];
+    // Implémentation
+    return $resultats;
+}
 
 /* Requête R3
  * Récupérer l'ensemble des articles

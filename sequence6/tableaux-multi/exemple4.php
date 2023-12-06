@@ -17,17 +17,33 @@ $personnes = [
 // Afficher une valeur du tableau
 // Afficher le prénom de la personne dont le numéro est "P001"
 echo "-------------------------------------" . PHP_EOL;
+echo $personnes["P001"]["prenom"];
+echo PHP_EOL;
 
 // Afficher toutes les valeurs du tableau
 echo "-------------------------------------" . PHP_EOL;
+foreach ($personnes as $personne){
+    foreach ($personne as $value){;
+    echo "$value ";
+    }
+    echo PHP_EOL;
+}
 
 // Afficher toutes les valeurs du tableau avec le destructuring
 // Utilisation possible car chaque valeur (tableau associatif) possède les mêmes clés
 echo "-------------------------------------" . PHP_EOL;
+foreach ($personnes as $personne){
+    ["nom"=>$nom,"prenom"=>$prenom, "age"=>$age]=$personne;
+    echo "$nom $prenom $age";
+    echo PHP_EOL;
+}
+
 
 // Afficher tous les éléments (clé et valeur) du tableau
 echo "-------------------------------------" . PHP_EOL;
-
-
-
-
+foreach ($personnes as $cle1=>$personne){
+    foreach ($personne as $cle2=>$valeur){
+        echo "[$cle1] [$cle2] = $valeur";
+    }
+    echo PHP_EOL;
+}

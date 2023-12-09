@@ -34,11 +34,34 @@ function rechercherArticlesActifs(array $tableArticle): array {
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
 // PLACER ICI VOTRE FONCTION
-function recupererArticlesCategorie(array $tableArticle, $tableCategorie) : array {
+function recupererArticlesCategorie(array $tableArticles, array $tableCategories, int $categorieId): array {
     $resultats = [];
-    // Implémentation
+
+    // Vérifier si la catégorie existe
+    if (array_key_exists($categorieId, $tableCategories)) {
+        $libelleCategorie = $tableCategories[$categorieId]["libelle"];
+
+        foreach ($tableArticles as $idArticle => $article) {
+            ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "actif" => $actif, "id_auteur" => $idAuteur, "id_categorie" => $idCategorie] = $article;
+
+            if ($categorieId == $idCategorie) {
+                // Ajoutez les informations nécessaires au tableau des résultats
+                $resultats[] = [
+                    "id" => $idArticle,
+                    "titre" => $titre,
+                    "contenu" => $contenu,
+                    "date_creation" => $date_creation,
+                    "categorie" => $libelleCategorie // Ajout de l'information sur la catégorie
+                ];
+            }
+        }
+    } else {
+        echo "La catégorie avec l'ID $categorieId n'existe pas.";
+    }
+
     return $resultats;
 }
+
 
 /* Requête R3
  * Récupérer l'ensemble des articles

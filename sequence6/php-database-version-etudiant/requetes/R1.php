@@ -8,16 +8,17 @@ require_once "requetes.php";
 /*
  * Test requête R1
 */
-foreach ($tableArticles as $table){
-    ["titre"=>$titre,"contenu"=>$contenu, "date_creation"=>$date_creation, "actif"=>$actif, ]=$table;
-    if ($actif==true){
-        echo "$titre,$contenu, $date_creation, $actif \n";
-        echo PHP_EOL;
-    }
+
+
+echo "...................................................................................... \n";
+
+// Appel de la fonction
+$resultatsArticlesActifs = rechercherArticlesActifs($tableArticles);
+
+// Affichage des résultats
+foreach ($resultatsArticlesActifs as $resultat) {
+    echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Contenu: {$resultat['contenu']}, Date de création: {$resultat['date_creation']}\n";
+    echo PHP_EOL;
 }
 
-//Donnée
-$resultats = rechercherArticlesActifs($tableArticles);
-
-print_r($resultats);
-//Fin donnée
+echo "......................................................................................";

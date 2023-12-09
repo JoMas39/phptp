@@ -9,13 +9,25 @@
  * Récupérer les articles actifs (articles à afficher)
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
-
-
-function rechercherArticlesActifs(array $tableArticle) : array {
+function rechercherArticlesActifs(array $tableArticle): array {
     $resultats = [];
-    // Implémentation
+    foreach ($tableArticle as $articleId => $article) {
+        ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "actif" => $actif] = $article;
+        // Condition true ok
+        if ($actif == true) {
+            // Infos nécessaires
+            $resultats[] = [
+                "id" => $articleId,
+                "titre" => $titre,
+                "contenu" => $contenu,
+                "date_creation" => $date_creation,
+            ];
+        }
+    }
     return $resultats;
 }
+
+
 
 /* Requête R2
  * Récupérer les articles d'une catégorie donnée

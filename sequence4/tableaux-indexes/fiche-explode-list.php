@@ -47,3 +47,4 @@ echo PHP_EOL;
 [,,,,$isbn]=$livreTab=explode(':', $livre);
 echo "$isbn";
 echo PHP_EOL;
+echo PHP_EOL;

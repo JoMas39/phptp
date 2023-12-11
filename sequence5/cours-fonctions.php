@@ -14,5 +14,3 @@ function retournerIdentite (string $prenom, string $nom): string {
         . strtoupper(strtolower($nom));
     return $identite;
 }
-
-

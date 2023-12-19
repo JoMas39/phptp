@@ -4,7 +4,9 @@
  * Ce fichier PHP contient la liste des fonctions permettant de
  * simuler les requêtes dans la base de données
  *******************************************************************/
-
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /* Requête R1
  * Récupérer les articles actifs (articles à afficher)
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
@@ -27,8 +29,9 @@ function rechercherArticlesActifs(array $tableArticle): array {
     return $resultats;
 }
 
-
-
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /* Requête R2
  * Récupérer les articles d'une catégorie donnée
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
@@ -58,7 +61,6 @@ function recupererArticlesCategorie(array $tableArticles, array $tableCategories
     } else {
         echo "La catégorie avec l'ID $categorieId n'existe pas.";
     }
-
     return $resultats;
 }
 

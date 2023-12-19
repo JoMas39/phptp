@@ -16,3 +16,14 @@ $resultatsCategorieUtilisateur = recupererArticlesCategorie($tableArticles, $tab
 foreach ($resultatsCategorieUtilisateur as $resultat) {
     echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Contenu: {$resultat['contenu']}, Date de création: {$resultat['date_creation']}, Catégorie: {$resultat['categorie']}\n";
 }
+
+
+/*
+Appel de la fonction
+
+
+echo "...................................................................................... \n";
+$resultats = recupererArticlesCategorie($tableArticles);
+print_r($resultats);
+echo "......................................................................................";
+*/

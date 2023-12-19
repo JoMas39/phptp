@@ -29,7 +29,6 @@ function recupererTousLesArticles(array $tableArticles, array $tableCategories):
             echo "La catégorie avec l'ID $idCategorie n'existe pas pour l'article avec l'ID $idArticle.\n";
         }
     }
-
     return $resultats;
 }
 

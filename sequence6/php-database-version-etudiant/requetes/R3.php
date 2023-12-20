@@ -7,6 +7,4 @@ require_once "requetes.php";
 
 
 $resultatsTousLesArticles = recupererTousLesArticles($tableArticles, $tableCategories);
-foreach ($resultatsTousLesArticles as $resultat) {
-    echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Contenu: {$resultat['contenu']}, Date de création: {$resultat['date_creation']}, Catégorie: {$resultat['categorie']}\n";
-}
+print_r($resultatsTousLesArticles);

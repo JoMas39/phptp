@@ -81,13 +81,9 @@ function recupererArticlesCategorie(array $tableArticles, array $tableCategories
 // PLACER ICI VOTRE FONCTION
 function recupererTousLesArticles(array $tableArticles, array $tableCategories): array {
     $resultats = [];
-
     foreach ($tableArticles as $idArticle => $article) {
         ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "id_categorie" => $idCategorie] = $article;
-
-        if (array_key_exists($idCategorie, $tableCategories)) {
             $nomCategorie = $tableCategories[$idCategorie]["libelle"];
-
             $resultats[] = [
                 "id" => $idArticle,
                 "titre" => $titre,
@@ -95,9 +91,6 @@ function recupererTousLesArticles(array $tableArticles, array $tableCategories):
                 "date_creation" => $date_creation,
                 "categorie" => $nomCategorie
             ];
-        } else {
-            echo "La catégorie avec l'ID $idCategorie n'existe pas pour l'article avec l'ID $idArticle.\n";
-        }
     }
     return $resultats;
 }
@@ -118,39 +111,76 @@ function recupererTousLesArticles(array $tableArticles, array $tableCategories):
 // PLACER ICI VOTRE FONCTION
 function recupererArticlesApresDate(array $tableArticles, array $tableAuteurs, string $dateLimite): array {
     $resultats = [];
-
     foreach ($tableArticles as $idArticle => $article) {
         ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "id_auteur" => $idAuteur] = $article;
-
         if (strtotime($date_creation) > strtotime($dateLimite)) {
-            // Vérifier si l'auteur existe
-            if (array_key_exists($idAuteur, $tableAuteurs)) {
-                $nomAuteur = $tableAuteurs[$idAuteur]["prenom"] . " " . $tableAuteurs[$idAuteur]["nom"];
-
-                $resultats[] = [
-                    "id" => $idArticle,
-                    "titre" => $titre,
-                    "contenu" => $contenu,
-                    "date_creation" => $date_creation,
-                    "auteur" => $nomAuteur
-                ];
-            } else {
-                echo "L'auteur avec l'ID $idAuteur n'existe pas pour l'article avec l'ID $idArticle.\n";
-            }
+            $nomAuteur = $tableAuteurs[$idAuteur]["prenom"] . " " . $tableAuteurs[$idAuteur]["nom"];
+            $resultats[] = [
+                "id" => $idArticle,
+                "titre" => $titre,
+                "contenu" => $contenu,
+                "date_creation" => $date_creation,
+                "auteur" => $nomAuteur
+            ];
         }
     }
     return $resultats;
 }
+/*
+ _______________________________________________________________________________________________________________________
+ */
 
 
 
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /*                                              Requête R5
  * Récupérer les articles à afficher ordonnés sur le titre (ordre alphabétique)
  * On souhaite récupérer l'id, le titre, la date de création et le libellé de la catégorie de chaque article
 */
 // PLACER ICI VOTRE FONCTION
+function recupererArticlesOrdonnesParTitre(array $tableArticles, array $tableCategories): array {
+    $resultats = [];
+
+    // Tableau temporaire pour stocker les articles avec le titre comme clé
+    $articlesTries = [];
+
+    foreach ($tableArticles as $idArticle => $article) {
+        ["titre" => $titre, "date_creation" => $date_creation, "id_categorie" => $idCategorie] = $article;
+
+        $libelleCategorie = $tableCategories[$idCategorie]["libelle"];
+
+        // Ajouter les infos au tableau des articles triés
+        $articlesTries[$titre] = [
+            "id" => $idArticle,
+            "titre" => $titre,
+            "date_creation" => $date_creation,
+            "categorie" => $libelleCategorie
+        ];
+    }
 
 
+    // Là on trie le tableau des articles par le titre
+    ksort($articlesTries);
+
+
+    // Là on ajoute les articles triés au tableau des résultats
+    foreach ($articlesTries as $articleTrie) {
+        $resultats[] = $articleTrie;
+    }
+
+    return $resultats;
+}
+/*
+ _______________________________________________________________________________________________________________________
+ */
+
+
+
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /*                                              Requête R6
  * Récupérer le nombre d'articles postés par un auteur donné (id_auteur)
 */

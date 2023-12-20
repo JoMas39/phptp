@@ -10,10 +10,9 @@ require_once "requetes.php";
 */
 
 // Saisie de l'utilisateur pour la date limite :
-$dateLimiteR4 = (int)readline("Saisir une date (dd-mm-yyyy) : ");
+$dateLimiteR4 = readline("Saisir une date (dd-mm-yyyy) : ");
 //Appel de la fonction
 $resultatsArticlesApresDate = recupererArticlesApresDate($tableArticles, $tableAuteurs, $dateLimiteR4);
 //Résultats
-foreach ($resultatsArticlesApresDate as $resultat) {
-    echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Contenu: {$resultat['contenu']}, Date de création: {$resultat['date_creation']}, Auteur: {$resultat['auteur']}\n";
-}
+print_r($resultatsArticlesApresDate);
+

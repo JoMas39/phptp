@@ -1,5 +1,4 @@
 <?php
-
 /********************************************************************
  * Ce fichier PHP contient la liste des fonctions permettant de
  * simuler les requêtes dans la base de données
@@ -7,7 +6,7 @@
 /*
  _______________________________________________________________________________________________________________________
  */
-/* Requête R1
+/*                                                      Requête R1
  * Récupérer les articles actifs (articles à afficher)
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
@@ -33,10 +32,11 @@ function rechercherArticlesActifs(array $tableArticle): array {
  */
 
 
+
 /*
  _______________________________________________________________________________________________________________________
  */
-/* Requête R2
+/*                                                  Requête R2
  * Récupérer les articles d'une catégorie donnée
  * On souhaite récupérer l'id, le titre, le contenu et la date de création de chaque article
 */
@@ -44,7 +44,6 @@ function rechercherArticlesActifs(array $tableArticle): array {
 function recupererArticlesCategorie(array $tableArticles, array $tableCategories, int $categorieId): array {
     $resultats = [];
 
-    // Vérifier si la catégorie existe
     if (array_key_exists($categorieId, $tableCategories)) {
         $libelleCategorie = $tableCategories[$categorieId]["libelle"];
 
@@ -71,10 +70,11 @@ function recupererArticlesCategorie(array $tableArticles, array $tableCategories
  */
 
 
+
 /*
  _______________________________________________________________________________________________________________________
  */
-/* Requête R3
+/*                                              Requête R3
  * Récupérer l'ensemble des articles
  * On souhaite récupérer l'id, le titre, le contenu, la date de création et le nom de la catégorie de chaque article
 */
@@ -85,11 +85,9 @@ function recupererTousLesArticles(array $tableArticles, array $tableCategories):
     foreach ($tableArticles as $idArticle => $article) {
         ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "id_categorie" => $idCategorie] = $article;
 
-        // Vérifier si la catégorie existe
         if (array_key_exists($idCategorie, $tableCategories)) {
             $nomCategorie = $tableCategories[$idCategorie]["libelle"];
 
-            // Ajouter les informations nécessaires au tableau des résultats
             $resultats[] = [
                 "id" => $idArticle,
                 "titre" => $titre,
@@ -103,32 +101,63 @@ function recupererTousLesArticles(array $tableArticles, array $tableCategories):
     }
     return $resultats;
 }
+/*
+ _______________________________________________________________________________________________________________________
+ */
 
 
 
-
-/* Requête R4
+/*
+ _______________________________________________________________________________________________________________________
+ */
+/*                                              Requête R4
  * Récupérer les articles dont la date de création est supérieure à une date donnée
  * On souhaite récupérer l'id, le titre, le contenu, la date de création, le prénom et le nom de l'auteur de
  * chaque article
 */
 // PLACER ICI VOTRE FONCTION
+function recupererArticlesApresDate(array $tableArticles, array $tableAuteurs, string $dateLimite): array {
+    $resultats = [];
+
+    foreach ($tableArticles as $idArticle => $article) {
+        ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "id_auteur" => $idAuteur] = $article;
+
+        if (strtotime($date_creation) > strtotime($dateLimite)) {
+            // Vérifier si l'auteur existe
+            if (array_key_exists($idAuteur, $tableAuteurs)) {
+                $nomAuteur = $tableAuteurs[$idAuteur]["prenom"] . " " . $tableAuteurs[$idAuteur]["nom"];
+
+                $resultats[] = [
+                    "id" => $idArticle,
+                    "titre" => $titre,
+                    "contenu" => $contenu,
+                    "date_creation" => $date_creation,
+                    "auteur" => $nomAuteur
+                ];
+            } else {
+                echo "L'auteur avec l'ID $idAuteur n'existe pas pour l'article avec l'ID $idArticle.\n";
+            }
+        }
+    }
+    return $resultats;
+}
 
 
-/* Requête R5
+
+/*                                              Requête R5
  * Récupérer les articles à afficher ordonnés sur le titre (ordre alphabétique)
  * On souhaite récupérer l'id, le titre, la date de création et le libellé de la catégorie de chaque article
 */
 // PLACER ICI VOTRE FONCTION
 
 
-/* Requête R6
+/*                                              Requête R6
  * Récupérer le nombre d'articles postés par un auteur donné (id_auteur)
 */
 // PLACER ICI VOTRE FONCTION
 
 
-/* Requête R7
+/*                                              Requête R7
  * Récupérer le nombre d'articles postés par chaque auteur
  * On souhaite récupérer l'id, le prénom, le nom et le nombre d'articles ce chaque auteur
 */

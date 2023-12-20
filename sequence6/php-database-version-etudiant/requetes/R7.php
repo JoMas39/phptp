@@ -5,6 +5,9 @@ require "../base-de-donnees/tableAuteur.php";
 require "../base-de-donnees/tableCategorie.php";
 require_once "requetes.php";
 
+//Reprendre la fonction 6 et utiliser un foreach avec une variable incrémentée à chaque tour
+
+
 /*
  * Test requête R7
 function nombreArticlesParChaqueAuteur(array $tableArticles, array $tableAuteurs): array {

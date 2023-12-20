@@ -12,13 +12,3 @@ $resultatsArticlesOrdonnes = recupererArticlesOrdonnesParTitre($tableArticles, $
 print_r($resultatsArticlesOrdonnes);
 
 
-
-/*
-// Affichage des résultats R5
-foreach ($resultatsArticlesOrdonnes as $resultat) {
-    echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Date de création: {$resultat['date_creation']}, Catégorie: {$resultat['categorie']}\n";
-}
-
-*/
-
-

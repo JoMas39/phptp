@@ -151,7 +151,7 @@ function recupererArticlesOrdonnesParTitre(array $tableArticles, array $tableCat
 
         $libelleCategorie = $tableCategories[$idCategorie]["libelle"];
 
-        // Ajouter les infos au tableau des articles triés
+        // Pour ajouter les infos au tableau des articles triés
         $articlesTries[$titre] = [
             "id" => $idArticle,
             "titre" => $titre,
@@ -185,10 +185,33 @@ function recupererArticlesOrdonnesParTitre(array $tableArticles, array $tableCat
  * Récupérer le nombre d'articles postés par un auteur donné (id_auteur)
 */
 // PLACER ICI VOTRE FONCTION
+function nombreArticlesParAuteur(array $tableArticles, int $idAuteur): int {
+    $nombreArticles = 0;
+    foreach ($tableArticles as $article) {
+        ["id_auteur" => $auteurArticleId] = $article;
+
+        if ($auteurArticleId === $idAuteur) {
+            $nombreArticles++;
+        }
+    }
+    return $nombreArticles;
+}
+/*
+ _______________________________________________________________________________________________________________________
+ */
 
 
+
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /*                                              Requête R7
  * Récupérer le nombre d'articles postés par chaque auteur
  * On souhaite récupérer l'id, le prénom, le nom et le nombre d'articles ce chaque auteur
 */
 // PLACER ICI VOTRE FONCTION
+
+
+/*
+ _______________________________________________________________________________________________________________________
+ */

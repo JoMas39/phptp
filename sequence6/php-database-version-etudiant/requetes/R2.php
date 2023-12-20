@@ -9,21 +9,7 @@ require_once "requetes.php";
 // Saisie de l'utilisateur pour l'ID de la catégorie
 $categorieId = (int)readline("Saisir l'id d'une catégorie : ");
 
-// Exemple d'utilisation de la fonction avec la catégorie saisie par l'utilisateur
-$resultatsCategorieUtilisateur = recupererArticlesCategorie($tableArticles, $tableCategories, $categorieId);
-
-// Affichage des résultats
-foreach ($resultatsCategorieUtilisateur as $resultat) {
-    echo "ID: {$resultat['id']}, Titre: {$resultat['titre']}, Contenu: {$resultat['contenu']}, Date de création: {$resultat['date_creation']}, Catégorie: {$resultat['categorie']}\n";
-}
-
-
-/*
-Appel de la fonction
-
-
 echo "...................................................................................... \n";
-$resultats = recupererArticlesCategorie($tableArticles);
+$resultats = recupererArticlesCategorie($tableArticles,$tableCategories, $categorieId);
 print_r($resultats);
 echo "......................................................................................";
-*/

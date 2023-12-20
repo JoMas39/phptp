@@ -28,6 +28,10 @@ function rechercherArticlesActifs(array $tableArticle): array {
     }
     return $resultats;
 }
+/*
+ _______________________________________________________________________________________________________________________
+ */
+
 
 /*
  _______________________________________________________________________________________________________________________
@@ -48,13 +52,12 @@ function recupererArticlesCategorie(array $tableArticles, array $tableCategories
             ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "actif" => $actif, "id_auteur" => $idAuteur, "id_categorie" => $idCategorie] = $article;
 
             if ($categorieId == $idCategorie) {
-                // Ajoutez les informations nécessaires au tableau des résultats
                 $resultats[] = [
                     "id" => $idArticle,
                     "titre" => $titre,
                     "contenu" => $contenu,
                     "date_creation" => $date_creation,
-                    "categorie" => $libelleCategorie // Ajout de l'information sur la catégorie
+                    "categorie" => $libelleCategorie
                 ];
             }
         }
@@ -63,13 +66,45 @@ function recupererArticlesCategorie(array $tableArticles, array $tableCategories
     }
     return $resultats;
 }
+/*
+ _______________________________________________________________________________________________________________________
+ */
 
 
+/*
+ _______________________________________________________________________________________________________________________
+ */
 /* Requête R3
  * Récupérer l'ensemble des articles
  * On souhaite récupérer l'id, le titre, le contenu, la date de création et le nom de la catégorie de chaque article
 */
 // PLACER ICI VOTRE FONCTION
+function recupererTousLesArticles(array $tableArticles, array $tableCategories): array {
+    $resultats = [];
+
+    foreach ($tableArticles as $idArticle => $article) {
+        ["titre" => $titre, "contenu" => $contenu, "date_creation" => $date_creation, "id_categorie" => $idCategorie] = $article;
+
+        // Vérifier si la catégorie existe
+        if (array_key_exists($idCategorie, $tableCategories)) {
+            $nomCategorie = $tableCategories[$idCategorie]["libelle"];
+
+            // Ajouter les informations nécessaires au tableau des résultats
+            $resultats[] = [
+                "id" => $idArticle,
+                "titre" => $titre,
+                "contenu" => $contenu,
+                "date_creation" => $date_creation,
+                "categorie" => $nomCategorie
+            ];
+        } else {
+            echo "La catégorie avec l'ID $idCategorie n'existe pas pour l'article avec l'ID $idArticle.\n";
+        }
+    }
+    return $resultats;
+}
+
+
 
 
 /* Requête R4

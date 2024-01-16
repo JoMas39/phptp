@@ -22,4 +22,4 @@ print_r($resultats);
   //  echo $resultat["prenom_etudiant"] . " " .
     //    $resultat["nom_etudiant"] . PHP_EOL;
 //}
-// Pour simplier, on met les deux champs dans le SELECT. La sélection des champs se fait dans le query, pas avec un foreach
+// Pour simplifier, on met les deux champs dans le SELECT. La sélection des champs se fait dans le query, pas avec un foreach

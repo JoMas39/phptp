@@ -15,9 +15,11 @@ $choix=readline("Veuillez saisir l'id de l'étudiant : ");
 // Préparer la requête
 $requete = $connexion->prepare("SELECT * FROM etudiant WHERE id_etudiant= :id");
 // Donner une valeur au paramète
-$requete->bindValue(":id", $choix);
+// $requete->bindValue(":id", $choix); on peut fusionner cette ligne avec la suivante
 //Exécuter la requête
-$requete->execute();
+$requete->execute([
+    ":id"=>$choix
+]);
 //Récupérer les données
 $etudiant = $requete->fetch(PDO::FETCH_ASSOC);
 // Test si l'étudiant existe

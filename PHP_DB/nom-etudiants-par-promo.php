@@ -6,12 +6,14 @@
  */
 require "config/db-config.php";
 
-// Préparer la requête
-$requete = $connexion->prepare("
-SELECT nom_promotion, COUNT(etudiant.id_promotion) as nbEtudiants
+//Ecrire la requete
+$SQL="SELECT DISTINCT nom_promotion, nom_etudiant 
 FROM etudiant, promotion 
 WHERE etudiant.id_promotion=promotion.id_promotion 
-GROUP BY nom_promotion;");
+ORDER BY nom_etudiant";
+
+// Préparer la requête
+$requete = $connexion->prepare($SQL);
 
 //Exécuter la requête
 $requete->execute();
@@ -21,5 +23,5 @@ $resultats=$requete->fetchAll(PDO::FETCH_ASSOC);
 
 // Affichage des résultats
 foreach ($resultats as $resultat){
-    echo $resultat["nom_promotion"]. " : " . $resultat["nbEtudiants"] . " étudiants". "\n" ;
+    echo $resultat["nom_promotion"]. " : " . $resultat["nom_etudiant"]. "\n" ;
 }
